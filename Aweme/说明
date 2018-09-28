@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# @Software: PyCharm
+# @Environment: Python3.6.1
+# @author:
+# @time:2018-9-25
+
+
+# 1,spider里面的时间戳，要定时的修改。过时容易失效。
+# 2，爬虫中的字段能爬，但是不一定能存进数据库里面。
+# 3，最重要的是：仔细，仔细，再仔细。
