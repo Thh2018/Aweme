@@ -5,10 +5,11 @@
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import random
-
+from scrapy.contrib.downloadermiddleware.httpproxy import HttpProxyMiddleware
 from scrapy import signals
 
 from proxypool.db import RedisClient
+from tools.UserAgents import agents
 
 
 class AwemeSpiderMiddleware(object):
@@ -128,14 +129,47 @@ class AwemeDownloaderMiddleware(object):
 #         # 设置proxy
 #         request.meta["proxy"] = proxyServer
 #         request.headers["Proxy-Authorization"] = proxyAuth
+class RandomUserAgentMiddleware(object):
+    def __init__(self):
+        self.user_agents = agents
+        a=random.choice(self.user_agents)
+        print(a)
 
+    def process_request(self, request, spider):
+        request.headers['User-Agent'] = random.choice(self.user_agents)
 
+# from .test_ip import proxy_test
+# class ProxyMiddleware(object):
+#     def __init__(self):
+#         # 连接redis数据库，调用radom方法获取一个随机的IP
+#         # self.db = RedisClient()
+#         # self.proxy = self.db.random()
+#         #使用前检验代理ip
+#         self.proxy = proxy_test()
+#         print('self.proxy:',self.proxy)
+#
+#     def process_request(self, request, spider):
+#         if request.url.startswith('http://'):
+#             if self.proxy:
+#                 proxies="http://{}".format(self.proxy)
+#         else:
+#             if self.proxy:
+#                 proxies="https://{}".format(self.proxy)
+#         print(proxies)
+#         request.meta["proxy"] = proxies
 
 class ProxyMiddleware(object):
     def __init__(self):
-        # 连接redis数据库，调用radom方法获取一个随机的IP
-        self.db = RedisClient()
+        #连接redis数据库，调用radom方法获取一个随机的IP
+        self.db = R = RedisClient()
         self.proxy = self.db.random()
+        #使用前检验代理IP
+        #  # self.proxy =xy = proxy_test()
+        # print('t('self.proxy:'xy:',:',self.proxy)xy)
 
-    def process_request(self, request, spider):
-        request.meta["proxy"] = self.proxy
+
+
+
+if __name__ == '__main__':
+    a=ProxyMiddleware()
+    b=RandomUserAgentMiddleware()

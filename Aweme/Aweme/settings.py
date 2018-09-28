@@ -67,15 +67,15 @@ DELTAFETCH_ENABLED = True
 # }
 
 
-DOWNLOADER_MIDDLEWARES = {
-    # 代理
-    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 543,
-    'Aweme.middlewares.ProxyMiddleware': 300,
-    # 随机user-agent
-    # 'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
-    #  'Aweme.middlewares.RandomUserAgentMiddleware':200,
-
-}
+# DOWNLOADER_MIDDLEWARES = {
+#     # 代理
+#     'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 543,
+#     'Aweme.middlewares.ProxyMiddleware': 300,
+#     # 随机user-agent
+#     # 'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
+#     #  'Aweme.middlewares.RandomUserAgentMiddleware':200,
+#
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
