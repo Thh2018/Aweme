@@ -1,9 +1,14 @@
-import redis
-from proxypool.error import PoolEmptyError
-from proxypool.setting import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, REDIS_KEY
-from proxypool.setting import MAX_SCORE, MIN_SCORE, INITIAL_SCORE
-from random import choice
 import re
+from random import choice
+
+import redis
+
+# from Aweme.proxypool import MAX_SCORE, MIN_SCORE, INITIAL_SCORE
+# from Aweme.proxypool import PoolEmptyError
+# from Aweme.proxypool import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, REDIS_KEY
+from proxypool.error import PoolEmptyError
+from proxypool.setting import REDIS_KEY, MAX_SCORE, MIN_SCORE, REDIS_HOST, \
+    REDIS_PORT, REDIS_PASSWORD, INITIAL_SCORE
 
 
 class RedisClient(object):

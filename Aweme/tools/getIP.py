@@ -1,5 +1,4 @@
-import redis
-from proxypool.db import RedisClient
+from Aweme.proxypool.db import RedisClient
 
 
 def get_peoxy():

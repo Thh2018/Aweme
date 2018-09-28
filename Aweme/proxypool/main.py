@@ -1,4 +1,4 @@
-from proxypool.scheduler import Scheduler
+from Aweme.proxypool import Scheduler
 
 
 def main():

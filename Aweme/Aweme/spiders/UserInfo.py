@@ -5,13 +5,19 @@
 import json
 import re
 import time
-
 import scrapy
 
 from item.Fans_Concern_Total import FansConcernItem
 from item.User_Info_Item import UserInfoItem
 from querydata import QueryUserId
 from tools import Encrypt
+import logging
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='user_info.log',
+                    filemode='w')
 
 
 class FansSpider(scrapy.Spider):
@@ -35,6 +41,7 @@ class FansSpider(scrapy.Spider):
                                  meta={'url': start_url})
 
     def parse(self, response):
+        self.logger.info('Parse function called on %s', response.url)
         item = UserInfoItem()
         data = json.loads(response.body.decode('utf-8'))
         user_info = data["user"]

@@ -52,7 +52,11 @@ CONCURRENT_REQUESTS_PER_IP = 16
 # SPIDER_MIDDLEWARES = {
 #    'Aweme.middlewares.AwemeSpiderMiddleware': 543,
 # }
-
+# 增量去重
+SPIDER_MIDDLEWARES = {
+    'scrapy_deltafetch.DeltaFetch': 100,
+}
+DELTAFETCH_ENABLED = True
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
@@ -61,6 +65,17 @@ CONCURRENT_REQUESTS_PER_IP = 16
 #     'Aweme.middlewares.AwemeDownloaderMiddleware': 543,
 #     'Aweme.middlewares.IPPOOLS': 143,
 # }
+
+
+DOWNLOADER_MIDDLEWARES = {
+    # 代理
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 543,
+    'Aweme.middlewares.ProxyMiddleware': 300,
+    # 随机user-agent
+    # 'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
+    #  'Aweme.middlewares.RandomUserAgentMiddleware':200,
+
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -125,4 +140,3 @@ MYSQL_PORT = 3306  # 数据库端口，在dbhelper中使用
 
 BASE_DIR = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR, 'Aweme'))
-

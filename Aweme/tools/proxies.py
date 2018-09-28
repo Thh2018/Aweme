@@ -1,5 +1,8 @@
 # coding=utf-8
 
+import random
+from multiprocessing import Process, Queue
+
 import requests
 from bs4 import BeautifulSoup
 import lxml

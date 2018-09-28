@@ -128,14 +128,7 @@ class AwemeDownloaderMiddleware(object):
 #         # 设置proxy
 #         request.meta["proxy"] = proxyServer
 #         request.headers["Proxy-Authorization"] = proxyAuth
-class RandomUserAgentMiddleware(object):
-    def __init__(self):
-        self.user_agents = [
 
-        ]
-
-    def process_request(self, request, spider):
-        request.headers['User-Agent'] = random.choice(self.user_agents)
 
 
 class ProxyMiddleware(object):

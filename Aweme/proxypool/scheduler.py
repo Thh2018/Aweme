@@ -1,9 +1,10 @@
 import time
 from multiprocessing import Process
-from proxypool.getter import Getter
-from proxypool.tester import Tester
-from proxypool.db import RedisClient
+
 from proxypool.setting import *
+from proxypool.tester import Tester
+
+from Aweme.proxypool.getter import Getter
 
 
 class Scheduler():
@@ -38,3 +39,9 @@ class Scheduler():
         if GETTER_ENABLED:
             getter_process = Process(target=self.schedule_getter)
             getter_process.start()
+
+if __name__ == '__main__':
+    a=Scheduler()
+    a.run()
+
+

@@ -1,4 +1,4 @@
-from proxypool.db import RedisClient
+from Aweme.proxypool.db import RedisClient
 
 conn = RedisClient()
 

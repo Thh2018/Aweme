@@ -1,8 +1,11 @@
-from proxypool.tester import Tester
-from proxypool.db import RedisClient
-from proxypool.crawler import Crawler
-from proxypool.setting import *
+from Aweme.proxypool.db import RedisClient
 import sys
+
+from proxypool.crawler2 import Crawler
+from proxypool.setting import *
+
+from Aweme.proxypool.db import RedisClient
+
 
 class Getter():
     def __init__(self):

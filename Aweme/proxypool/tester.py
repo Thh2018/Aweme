@@ -1,14 +1,14 @@
 import asyncio
-import aiohttp
-import time
 import sys
+import time
+
+import aiohttp
 
 try:
     from aiohttp import ClientError
 except:
     from aiohttp import ClientProxyConnectionError as ProxyConnectionError
-from proxypool.db import RedisClient
-from proxypool.setting import *
+from Aweme.proxypool.db import RedisClient
 
 
 class Tester(object):

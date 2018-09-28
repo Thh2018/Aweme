@@ -24,7 +24,7 @@ TESTER_CYCLE = 20
 GETTER_CYCLE = 20
 
 # 测试API，抓哪个网站测哪个
-TEST_URL = 'http://www.baidu.com'
+TEST_URL = 'https://www.baidu.com'
 
 # 开关
 TESTER_ENABLED = True
